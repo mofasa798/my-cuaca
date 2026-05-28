@@ -16,7 +16,7 @@ Aplikasi backend cuaca sederhana menggunakan Node.js dan Express.
 2. Buat file `.env`
 3. Isi `WEATHER_API_KEY` di `.env`
 4. `npm run dev`
-5. Buka `http://localhost:3000/weather?city=Jakarta`
+5. Buka `http://localhost:3002/weather?city=Jakarta`
 
 ## Contoh respons
 ```

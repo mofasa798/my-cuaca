@@ -9,7 +9,7 @@
  * 5. Render - tampilkan hasil ke UI
  */
 
-const API_BASE_URL = 'http://localhost:3000';
+const API_BASE_URL = 'http://localhost:3002';
 
 // DOM Elements
 const cityInput = document.getElementById('cityInput');

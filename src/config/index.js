@@ -7,7 +7,7 @@ const __dirname = path.dirname(__filename);
 
 dotenv.config({ path: path.resolve(__dirname, '..', '..', '.env') });
 
-const port = Number(process.env.PORT ?? 3000);
+const port = Number(process.env.PORT ?? 3002);
 const weatherApiKey = process.env.WEATHER_API_KEY;
 
 if (!weatherApiKey) {
