@@ -1,0 +1,18 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Optional: Add custom components here if needed */
+@layer components {
+  .btn-primary {
+    @apply px-6 py-3 bg-indigo-500 hover:bg-indigo-600 text-white rounded-lg font-semibold transition-colors active:scale-95;
+  }
+
+  .input-primary {
+    @apply flex-1 px-4 py-3 border-2 border-gray-300 rounded-lg text-base focus:outline-none focus:border-indigo-500 transition-colors;
+  }
+
+  .card-gradient {
+    @apply bg-gradient-to-br from-indigo-500 to-purple-600 text-white rounded-xl p-6;
+  }
+}

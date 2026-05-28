@@ -1,0 +1,31 @@
+{
+  "name": "my-cuaca",
+  "version": "0.1.0",
+  "description": "API cuaca sederhana dengan Node.js dan Express",
+  "type": "module",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "dev": "nodemon src/index.js",
+    "tailwind:watch": "tailwindcss -i ./public/styles/input.css -o ./public/styles/output.css --watch",
+    "tailwind:build": "tailwindcss -i ./public/styles/input.css -o ./public/styles/output.css --minify"
+  },
+  "keywords": [
+    "weather",
+    "express",
+    "nodejs",
+    "api"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "dotenv": "^17.4.2",
+    "express": "^4.18.4"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.16",
+    "nodemon": "^3.0.1",
+    "postcss": "^8.4.32",
+    "tailwindcss": "^3.3.6"
+  }
+}
