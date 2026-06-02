@@ -15,4 +15,50 @@
   .card-gradient {
     @apply bg-gradient-to-br from-indigo-500 to-purple-600 text-white rounded-xl p-6;
   }
+
+  .glass-card {
+    @apply bg-white/10 backdrop-blur-xl border border-white/20 shadow-2xl;
+  }
+
+  .glass-panel {
+    @apply bg-white/10 rounded-3xl p-6 border border-white/10 shadow-lg transition-all duration-700 ease-out opacity-0 translate-y-4;
+  }
+
+  .glass-panel.show {
+    @apply opacity-100 translate-y-0;
+  }
+
+  .forecast-card {
+    @apply bg-white/10 rounded-3xl p-4 border border-white/10 shadow-xl backdrop-blur-md opacity-0 translate-y-6;
+    animation: fadeInUp 0.6s ease forwards;
+  }
+
+  .condition-icon {
+    @apply transition-transform duration-700 ease-out;
+    animation: float 4s ease-in-out infinite;
+  }
+
+  .bg-transition {
+    transition: background 1.2s ease-in-out, color 1.2s ease-in-out;
+  }
+
+  @keyframes fadeInUp {
+    0% {
+      opacity: 0;
+      transform: translateY(18px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-6px);
+    }
+  }
 }
