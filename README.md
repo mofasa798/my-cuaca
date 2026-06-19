@@ -5,6 +5,7 @@ Aplikasi cuaca sederhana berbasis web yang mengintegrasikan API cuaca eksternal 
 ---
 
 ## Daftar Isi
+
 1. [Tentang Aplikasi](#1-tentang-aplikasi)
 2. [Tech Stack yang Digunakan](#2-tech-stack-yang-digunakan)
 3. [Library yang Digunakan (Dependencies)](#3-library-yang-digunakan-dependencies)
@@ -17,7 +18,9 @@ Aplikasi cuaca sederhana berbasis web yang mengintegrasikan API cuaca eksternal 
 ---
 
 ## 1. Tentang Aplikasi
+
 **My Cuaca** adalah aplikasi yang dibangun untuk memantau kondisi cuaca secara real-time dan melihat prakiraan cuaca beberapa hari ke depan. Aplikasi ini memiliki fitur:
+
 - **Pencarian Real-Time**: Mencari data cuaca di berbagai kota di seluruh dunia.
 - **Prakiraan Cuaca (Forecast)**: Menampilkan prakiraan cuaca 1 hingga 10 hari ke depan (suhu rata-rata/min/max, kondisi cuaca, dan kemungkinan hujan).
 - **In-Memory Caching**: Dilengkapi dengan mekanisme caching sederhana berbasis TTL (Time-To-Live) pada backend untuk membatasi jumlah request langsung ke API eksternal, sehingga meningkatkan performa aplikasi dan menghemat kuota API.
@@ -26,7 +29,9 @@ Aplikasi cuaca sederhana berbasis web yang mengintegrasikan API cuaca eksternal 
 ---
 
 ## 2. Tech Stack yang Digunakan
+
 Proyek ini mengadopsi tumpukan teknologi modern yang ringan namun tangguh:
+
 - **Runtime Environment**: [Node.js](https://nodejs.org/) (dengan konfigurasi ES Modules asli agar mendukung sintaksis `import`/`export`).
 - **Backend Framework**: [Express.js](https://expressjs.com/) (minimalist web framework untuk membangun RESTful API).
 - **Frontend Core**: HTML5 dan Vanilla JavaScript (menggunakan modern Fetch API untuk AJAX).
@@ -35,13 +40,16 @@ Proyek ini mengadopsi tumpukan teknologi modern yang ringan namun tangguh:
 ---
 
 ## 3. Library yang Digunakan (Dependencies)
+
 Seluruh pustaka pendukung dapat dilihat di berkas [package.json](file:///c:/Users/Purchasing_2/Desktop/my-projek/my-cuaca/package.json):
 
 ### Dependencies Utama (Runtime)
+
 - **`express` (^4.18.4)**: Untuk mengelola server HTTP, routing API, middleware, serta menyajikan aset statis untuk frontend.
 - **`dotenv` (^17.4.2)**: Untuk membaca variabel lingkungan dari file konfigurasi lokal `.env`.
 
 ### DevDependencies (Alat Pengembangan)
+
 - **`nodemon` (^3.0.1)**: Alat bantu hot-reloading untuk memantau perubahan file backend dan otomatis melakukan restart server selama tahap pengembangan.
 - **`tailwindcss` (^3.3.6)**: Pustaka inti Tailwind CSS untuk memproses styling utility-class.
 - **`postcss` (^8.4.32) & `autoprefixer` (^10.4.16)**: Digunakan bersama Tailwind CSS untuk memproses CSS modern dan menambahkan kompatibilitas vendor-prefix secara otomatis pada browser.
@@ -84,6 +92,7 @@ my-cuaca/
 ```
 
 ### Penjelasan File dan Kode Penting (Link Pintasan):
+
 - **Server Entry-Point**: Berkas [src/index.js](file:///c:/Users/Purchasing_2/Desktop/my-projek/my-cuaca/src/index.js) mengimpor instance aplikasi Express dan menjalankannya pada port yang telah dikonfigurasi.
 - **Express App Setup**: Berkas [src/app.js](file:///c:/Users/Purchasing_2/Desktop/my-projek/my-cuaca/src/app.js) bertugas melakukan inisialisasi Express, menyetel middleware CORS, menyajikan folder `public` sebagai file statis, serta mendaftarkan rute utama.
 - **Peta Rute**: Berkas [src/routes/weather.js](file:///c:/Users/Purchasing_2/Desktop/my-projek/my-cuaca/src/routes/weather.js) mendefinisikan rute masukan API seperti pencarian kota dan forecast.
@@ -93,6 +102,7 @@ my-cuaca/
 - **Frontend App**: Berkas [public/app.js](file:///c:/Users/Purchasing_2/Desktop/my-projek/my-cuaca/public/app.js) menangani kueri form, request fetch ke backend, serta pembaruan tampilan UI cuaca secara dinamis.
 
 ### Aturan Penamaan File (Naming Conventions):
+
 1. **Lowercase Folders**: Nama direktori menggunakan huruf kecil secara keseluruhan (`config`, `middleware`, `routes`, `services`, `utils`) untuk konsistensi di berbagai sistem operasi.
 2. **camelCase JavaScript Files**: File utilitas, rute, atau layanan menggunakan penulisan camelCase (misalnya `weatherService.js`, `errorHandler.js`, `httpError.js`).
 3. **Extension Consistency**: Seluruh file JavaScript menggunakan ekstensi `.js` (ES Modules tidak mendukung penghilangan ekstensi secara implisit di lingkungan Node.js tanpa bundler).
@@ -104,7 +114,9 @@ my-cuaca/
 Berikut adalah dokumentasi API backend yang diekspos oleh aplikasi Express ini:
 
 ### 1. Health Check
+
 Memeriksa apakah server backend berjalan dengan baik.
+
 - **Endpoint**: `GET /health`
 - **Metode**: `GET`
 - **Format Respons (JSON)**:
@@ -116,7 +128,9 @@ Memeriksa apakah server backend berjalan dengan baik.
   ```
 
 ### 2. Dapatkan Cuaca Saat Ini (Current Weather)
+
 Mengambil informasi kondisi cuaca real-time di kota target.
+
 - **Endpoint**: `GET /weather`
 - **Metode**: `GET`
 - **Parameter Kueri**:
@@ -135,7 +149,9 @@ Mengambil informasi kondisi cuaca real-time di kota target.
   ```
 
 ### 3. Dapatkan Prakiraan Cuaca (Weather Forecast)
+
 Mengambil informasi perkiraan kondisi cuaca untuk beberapa hari mendatang.
+
 - **Endpoint**: `GET /weather/forecast`
 - **Metode**: `GET`
 - **Parameter Kueri**:
@@ -169,7 +185,9 @@ Mengambil informasi perkiraan kondisi cuaca untuk beberapa hari mendatang.
   ```
 
 ### 4. Respons Kesalahan (Error Responses)
+
 Jika terjadi error (seperti parameter kurang, kota tidak ditemukan, atau API bermasalah), aplikasi akan mengembalikan format respons terpadu dengan status kode HTTP yang sesuai (misal: `400 Bad Request` atau `404 Not Found`):
+
 - **Format Respons Error**:
   ```json
   {
@@ -186,7 +204,7 @@ Ikuti instruksi di bawah ini untuk memasang aplikasi di lokal komputer Anda:
 1. **Pastikan Node.js Terpasang**: Aplikasi ini membutuhkan runtime [Node.js](https://nodejs.org/) (versi 18+ direkomendasikan) beserta `npm`.
 2. **Kloning Proyek**: Posisikan terminal Anda pada root folder proyek:
    ```powershell
-   cd c:\Users\Purchasing_2\Desktop\my-projek\my-cuaca
+   cd [LOKASI-FOLDER]\my-cuaca
    ```
 3. **Instalasi Dependensi**: Unduh semua library penunjang:
    ```bash
@@ -211,7 +229,9 @@ Ikuti instruksi di bawah ini untuk memasang aplikasi di lokal komputer Anda:
 Aplikasi memiliki dua bagian utama yang harus dijalankan: build sistem CSS dan server backend.
 
 ### A. Pengompilan CSS (Tailwind)
+
 Karena frontend menggunakan Tailwind CSS, Anda harus mengompilasi file input CSS agar utility class diterjemahkan menjadi file output CSS yang siap dibaca web:
+
 - **Mode Development (Auto-compile / Watch Mode)**:
   Jalankan perintah ini di tab terminal baru. CSS akan secara otomatis di-build ulang setiap kali Anda merubah kelas style di index.html atau app.js.
   ```bash
@@ -224,7 +244,9 @@ Karena frontend menggunakan Tailwind CSS, Anda harus mengompilasi file input CSS
   ```
 
 ### B. Menjalankan Server Backend Express
+
 Setelah CSS ter-build, Anda dapat menyalakan server dengan salah satu cara berikut:
+
 - **Mode Pengembangan (Development Mode)**:
   Menggunakan `nodemon` agar server otomatis restart secara langsung ketika Anda merubah file backend di dalam folder `src`.
   ```bash
@@ -246,6 +268,7 @@ Setelah server menyala, buka browser Anda dan kunjungi halaman:
 Saat ini pengujian aplikasi dilakukan dengan tiga pendekatan:
 
 ### A. Pengujian Manual Frontend (UI & Integrasi)
+
 1. Buka peramban di alamat [http://localhost:3002](http://localhost:3002).
 2. Lakukan skenario input pencarian:
    - Ketik nama kota (contoh: `Jakarta`) pada search bar lalu tekan **Enter** atau klik ikon cari.
@@ -257,6 +280,7 @@ Saat ini pengujian aplikasi dilakukan dengan tiga pendekatan:
    - Ketik nama kota acak yang tidak valid (misal: `xyz123abc`), amati apakah muncul pesan error di antarmuka web.
 
 ### B. Pengujian Manual API Backend
+
 Anda dapat mengirimkan request HTTP langsung menggunakan utilitas baris perintah (`cURL`) atau software pengujian API seperti Postman / Insomnia:
 
 - **Menguji Status Server**:
@@ -273,6 +297,7 @@ Anda dapat mengirimkan request HTTP langsung menggunakan utilitas baris perintah
   ```
 
 ### C. Rencana Setup Pengujian Otomatis (Automated Testing)
+
 Bila ingin menerapkan testing otomatis di masa mendatang, skema berikut direkomendasikan untuk ditambahkan ke berkas [package.json](file:///c:/Users/Purchasing_2/Desktop/my-projek/my-cuaca/package.json):
 
 1. **Unit & Integration Testing (API)**:
