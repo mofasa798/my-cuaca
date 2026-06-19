@@ -204,14 +204,14 @@ Ikuti instruksi di bawah ini untuk memasang aplikasi di lokal komputer Anda:
 1. **Pastikan Node.js Terpasang**: Aplikasi ini membutuhkan runtime [Node.js](https://nodejs.org/) (versi 18+ direkomendasikan) beserta `npm`.
 2. **Kloning Proyek**: Posisikan terminal Anda pada root folder proyek:
    ```powershell
-   cd [LOKASI-FOLDER]\my-cuaca
+   cd [LOKASI-FOLDER-ANDA]\my-cuaca
    ```
 3. **Instalasi Dependensi**: Unduh semua library penunjang:
    ```bash
    npm install
    ```
 4. **Setup Environment Variables**:
-   - Salin file konfigurasi contoh [.env.example](file:///c:/Users/Purchasing_2/Desktop/my-projek/my-cuaca/.env.example) menjadi file `.env`:
+   - Salin file konfigurasi contoh [.env.example](file:///[LOKASI-FOLDER-ANDA]/my-cuaca/.env.example) menjadi file `.env`:
      ```powershell
      copy .env.example .env
      ```
