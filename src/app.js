@@ -23,6 +23,12 @@ app.use((req, res, next) => {
 // Serve static files dari folder public
 app.use(express.static('public'));
 
+
+// Routes
+app.get('/health', (req, res) => {
+  res.json({ status: 'ok', timestamp: new Date().toISOString() });
+});
+
 app.get("/", (req, res) => {
   res.json({
     status: "success",
@@ -32,11 +38,6 @@ app.get("/", (req, res) => {
       "/api/forecast"
     ]
   });
-});
-
-// Routes
-app.get('/health', (req, res) => {
-  res.json({ status: 'ok', timestamp: new Date().toISOString() });
 });
 
 app.use('/weather', weatherRouter);
