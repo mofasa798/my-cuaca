@@ -23,6 +23,17 @@ app.use((req, res, next) => {
 // Serve static files dari folder public
 app.use(express.static('public'));
 
+app.get("/", (req, res) => {
+  res.json({
+    status: "success",
+    message: "My Cuaca API berjalan 🚀",
+    endpoints: [
+      "/api/weather",
+      "/api/forecast"
+    ]
+  });
+});
+
 // Routes
 app.get('/health', (req, res) => {
   res.json({ status: 'ok', timestamp: new Date().toISOString() });
