@@ -9,7 +9,7 @@
  * 5. Render - tampilkan hasil ke UI
  */
 
-const API_BASE_URL = 'http://localhost:3002';
+const API_BASE_URL = 'https://my-cuaca-nine.vercel.app/';
 
 // DOM Elements
 const body = document.body;
